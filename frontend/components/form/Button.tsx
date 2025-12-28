@@ -1,17 +1,29 @@
+"use client";
+import { useFormState, useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
+import { Loader } from "lucide-react";
 
-type btnSize = 'default' | 'lg' | 'sm' 
+type btnSize = "default" | "lg" | "sm";
 
 type SubmitButtonProps = {
-  className: string;
+  className?: string;
   size?: btnSize;
   text?: string;
 };
 
 export const SubmitButton = ({ className, size, text }: SubmitButtonProps) => {
   //code
-
-  return <button type="submit" size={size}
-        className={`${className} capitonlize` }
-  >{text}</button>;
+  const { pending } = useFormStatus();
+  return (
+    <Button
+      disabled={pending}
+      type="submit"
+      size={size}
+      className={`${className} capitonlize`}
+    >
+      {pending 
+      ? <Loader className="animate-spin" /> 
+      : <p>{text}</p>}
+    </Button>
+  );
 };
