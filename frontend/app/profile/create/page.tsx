@@ -2,13 +2,8 @@ import { Button } from "@/components/ui/button";
 import FormInput from "@/components/form/FormInput";
 import { SubmitButton } from "@/components/form/Button";
 import FormContainer from "@/components/form/FormContainer";
+import { createProfileAction } from "@/actions/action";
 
-const createProfileAction = async (prevState:any ,formData: FormData) => {
-  "use server";
-  const firstName = formData.get("firstName") as string;
-  console.log("Jukkru!!!", firstName);
-  return {message : 'Create Profile Success!!!'}
-};
 
 const CreateProfilePage = () => {
   return (
@@ -19,7 +14,7 @@ const CreateProfilePage = () => {
           <div className="grid md:grid-cols-2 gap-4 mt-4">
             <FormInput
               name="firstName"
-              label="Fist Name"
+              label="First Name"
               type="text"
               placeholder="First Name"
             />
@@ -36,7 +31,9 @@ const CreateProfilePage = () => {
               placeholder="Username"
             />
           </div>
+          <div>
           <SubmitButton text="Create Profile" size='lg' />
+          </div>
         </FormContainer>
       </div>
     </section>
