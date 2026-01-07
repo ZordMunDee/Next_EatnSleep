@@ -12,7 +12,9 @@ export const profileSchema = z.object({
   userName: z
     .string()
     .min(2, { message: "UserName ต้องมีอักษรมากกว่า 2 ขึ้นไป" }),
+    
 });
+
 
 export const ValiDateWithZod = <T>(
     schema: ZodSchema<T>, 
