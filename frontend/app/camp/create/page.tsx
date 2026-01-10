@@ -4,6 +4,7 @@ import FormContainer from "@/components/form/FormContainer";
 import { createShopAction } from "@/actions/action";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
+import Categoryinput from "@/components/form/Categoryinput";
 
 
 const CreateProfilePage = async() => {
@@ -20,10 +21,13 @@ const CreateProfilePage = async() => {
               type="text"
               placeholder="Shop Name"
             />
+          {/* categoryinput */}
+          <Categoryinput />
           </div>
-          <div>
+
+
+          
           <SubmitButton text="Create Shop" size='lg' />
-          </div>
         </FormContainer>
       </div>
     </section>
