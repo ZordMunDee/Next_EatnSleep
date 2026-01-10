@@ -30,7 +30,8 @@ export const createProfileAction = async (
   formData: FormData
 ) => {
   try {
-    const user = await getAuthUser();
+    const user = await currentUser();
+    if(!user) throw new Error("Please Login!")
 
     const rawData = Object.fromEntries(formData);
     const validateField = ValiDateWithZod(profileSchema, rawData);
@@ -55,5 +56,26 @@ export const createProfileAction = async (
     return rendererror(error)
   }
   redirect('/')
+
+};
+
+export const createShopAction = async (
+  prevState: any,
+  formData: FormData
+): Promise<{message : string}>  => {
+  try {
+    const user = await currentUser();
+    if(!user) throw new Error("Please Login!")
+
+    const rawData = Object.fromEntries(formData);
+    // const validateField = ValiDateWithZod(profileSchema, rawData);
+    console.log("valedated", rawData);
+    
+    return { message: "Create Shop Success!!!" };
+  } catch (error) {
+    // console.log(error);
+    return rendererror(error)
+  }
+  // redirect('/')
 
 };

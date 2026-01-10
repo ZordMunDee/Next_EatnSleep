@@ -22,7 +22,10 @@ export const SubmitButton = ({ className, size, text }: SubmitButtonProps) => {
       className={`${className} capitonlize`}
     >
       {pending 
-      ? <Loader className="animate-spin" /> 
+      ? <>
+      <Loader className="animate-spin" />
+      <span>Please wait...</span> 
+      </>
       : <p>{text}</p>}
     </Button>
   );
