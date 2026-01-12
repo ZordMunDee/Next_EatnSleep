@@ -4,11 +4,11 @@ import FormContainer from "@/components/form/FormContainer";
 import { createShopAction } from "@/actions/action";
 import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import Categoryinput from "@/components/form/Categoryinput";
+import CategoryInput from "@/components/form/CategoryInput";
+import TextAreaInput from "@/components/form/TextAreaInput";
+import ProvincesInput from "@/components/form/ProvincesInput";
 
-
-const CreateProfilePage = async() => {
-
+const CreateProfilePage = async () => {
   return (
     <section>
       <h1 className="text-2xl font-semibold mb-8 capitalize">Create Shop</h1>
@@ -21,13 +21,21 @@ const CreateProfilePage = async() => {
               type="text"
               placeholder="Shop Name"
             />
-          {/* categoryinput */}
-          <Categoryinput />
+            {/* categoryinput */}
+            <CategoryInput />
+          </div>
+          <TextAreaInput name="description" />
+          <div className="grid md:grid-cols-2 gap-4 mt-4 mb-2">
+            <FormInput
+              name="Price"
+              label="Price"
+              type="number"
+              placeholder="Price"
+            />
+            <ProvincesInput />
           </div>
 
-
-          
-          <SubmitButton text="Create Shop" size='lg' />
+          <SubmitButton text="Create Shop" size="lg" />
         </FormContainer>
       </div>
     </section>

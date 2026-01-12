@@ -8,11 +8,11 @@ import {
 } from "@/components/ui/select";
 import { categories } from "@/utils/categories";
 
-const Categoryinput = ({ defaultValue }: { defaultValue?: string }) => {
+const CategoryInput = ({ defaultValue }: { defaultValue?: string }) => {
   const name = "category";
 
   return (
-    <div>
+    <div className="mb-2">
       <Label htmlFor={name} className="capitalize">
         {name}
       </Label>
@@ -41,4 +41,4 @@ const Categoryinput = ({ defaultValue }: { defaultValue?: string }) => {
   );
 };
 
-export default Categoryinput;
+export default CategoryInput;
